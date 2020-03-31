@@ -6,9 +6,9 @@ import pymongo
     #username: svetlana
     #password: cisco123
     #running on: localhost:27017
+
 #Now, let's connect to our database with these credentials by using PyMongo:--------------------------------------------
-url = "mongodb://svetlana:cisco123@localhost:27017/Device_Configuration"
-with pymongo.MongoClient(url) as client:
+with pymongo.MongoClient("mongodb://svetlana:cisco123@localhost:27017/Device_Configuration") as client:
     db = client.Device_Configuration
     collection = db.Interfaces
 
@@ -20,9 +20,13 @@ def PopulateMyCollection(SW,INF,DES,STA):
         "Interface_Name" : INF,
         "Description" : DES,
         "State" : STA})
+
 #Our function is ready! Let's populate the collection!-----------------------------------------------------------------
 #It is better to adopt an automated approach in this step for importing data from "interfaces.txt"----------------------
-#Let's leave this for a future upgrade!
-PopulateMyCollection("Switch1","int g1/0","Connected to the switch2 gi1/2","up")
-PopulateMyCollection("Switch1","int fc1/1/0","connected to the storage port 1","up")
-PopulateMyCollection("Switch2","int GigabitEthernet1/0/3","Connected to printer CX2","up")
+#Let's leave this for a future upgrade!---------------------------------------------------------------------------------
+PopulateMyCollection("bru-dna-1","int g1/0","Connected to the switch2 gi1/2","up")
+PopulateMyCollection("bru-dna-1","int fc1/1/0","connected to the storage port 1","up")
+PopulateMyCollection("mastodon","int GigabitEthernet1/0/3","Connected to printer CX2","up")
+PopulateMyCollection("mastodon","int GigabitEthernet1/0/5","Connected to printer CX4","down")
+PopulateMyCollection("mastodon","int GigabitEthernet1/4/3","Connected to server SERV1","up")
+
