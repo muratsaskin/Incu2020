@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaces of Switches</title>
+</head>
+<body>
+
+<table>
+  {% for entry in result %}
+  <tr>
+    <td>Switch Name: <b>{{entry['Switch_name']}}</b></td>
+    <td>Interface Name: <b>{{entry['Interface_Name']}}</b></td>
+    <td>Description: <b>{{entry['Description']}}</b></td>
+    <td>State: <b>{{entry['State']}}</b></td>
+  </tr>
+  {% endfor %}
+    </table>
+
+</body>
+</html>
